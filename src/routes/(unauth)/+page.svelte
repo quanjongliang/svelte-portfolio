@@ -27,12 +27,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 <h1>Welcome</h1>
 <div class="p-10">
-  <div class="flex">
+  <div class="lg:xl:flex flex-row">
     <div class="description pr-5">
       <h1 class="text-4xl">{state.title}</h1>
       <p class="text-xl mt-5">{state.description}</p>
     </div>
-    <img src={state.img} alt="" srcset="" width="40%" />
+    <img src={state.img} alt="" srcset="" class="w-1/1 lg:xl:w-1/4" />
   </div>
   <div class="social flex">
     {#each state.socials as social}
