@@ -34,10 +34,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     </div>
     <img src={state.img} alt="" srcset="" width="40%" />
   </div>
-  <div class="social">
+  <div class="social flex">
     {#each state.socials as social}
-      <a href={social.link} target="_blank">
+      <a href={social.link} target="_blank" class="mr-2">
         <i class={social.icon.class} style={social.icon.style} />
+        <p style={social.icon.style}>{social.name}</p>
       </a>
     {/each}
   </div>
