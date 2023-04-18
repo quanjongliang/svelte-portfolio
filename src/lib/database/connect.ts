@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
-import { MONGO_URL } from "$env/static/private";
+// import { MONGO_URL } from "$env/static/private";
+const MONGO_URL =
+  "mongodb+srv://mymongodb:Gunny2.0@cluster0.h2rrt.mongodb.net/test";
 /* 
   0 - disconnected
   1 - connected
