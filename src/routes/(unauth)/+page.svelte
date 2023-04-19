@@ -8,25 +8,36 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
       {
         name: "Facebook",
         link: "https://www.facebook.com/huynhnghi2409",
-        icon: {
-          class: "fab fa-facebook fa-2xl",
-          style: "color: #2977ff;",
-        },
+        style: "color: #2977ff;",
+        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png",
       },
       {
         name: "Instagram",
         link: "https://www.instagram.com/im.huangbyi/?fbclid=IwAR10964i4YYx1YGB8gseJQEbu7BNBhYSlxfjlLohi1fR0Td7ULGGBEHJgu4",
-        icon: {
-          class: "fab fa-instagram fa-2xl",
-          style: "color: #ff0000;",
-        },
+        style: "color: #ff0000;",
+        img: "https://cdn-icons-png.flaticon.com/512/174/174855.png",
       },
     ],
   };
+
+  const banners = [
+    "https://scontent.fsgn2-5.fna.fbcdn.net/v/t1.6435-9/70317033_126024208771494_5390122555627536384_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=19026a&_nc_ohc=QNFSc4xqtMAAX_anwy9&_nc_ht=scontent.fsgn2-5.fna&oh=00_AfDF0TtVA3mTrtU7Vh7xdGPyW1A-2mLQCTpEHVBQcrvwYw&oe=6466C400",
+    "https://img.freepik.com/free-vector/dark-blue-abstract-banner-half-tone-style-design_1017-39869.jpg",
+    "https://static.vecteezy.com/system/resources/previews/008/552/477/original/abstract-banner-background-with-lines-pattern-illustration-free-vector.jpg",
+    "https://img.freepik.com/free-vector/stylish-abstract-web-banner-with-text-space_1017-39039.jpg?w=2000",
+    "https://img.freepik.com/free-vector/stylish-glowing-digital-red-lines-banner_1017-23964.jpg",
+    "https://t4.ftcdn.net/jpg/04/95/28/65/360_F_495286577_rpsT2Shmr6g81hOhGXALhxWOfx1vOQBa.jpg",
+  ];
 </script>
 
 <h1>Welcome</h1>
 <div class="p-10">
+  <!-- <img
+    src="https://instagram.fsgn2-9.fna.fbcdn.net/v/t51.2885-15/81964058_621095181984495_5242187696980269312_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fsgn2-9.fna.fbcdn.net&_nc_cat=103&_nc_ohc=1v3XN8s20B8AX99hvzA&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MjIzMjA1NTMzMjQ5NzMzOTQwOA%3D%3D.2-ccb7-5&oh=00_AfAX_R05RXaLv3Z2VLGbV1V_hY4zAE4CXgO1SGE8DRHR1A&oe=6444D3D4&_nc_sid=6136e7"
+    alt=""
+    srcset=""
+    crossorigin="anonymous"
+  /> -->
   <div class="lg:xl:flex flex-row">
     <div class="description pr-5">
       <h1 class="text-4xl">{state.title}</h1>
@@ -37,12 +48,33 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
   <div class="social flex">
     {#each state.socials as social}
       <a href={social.link} target="_blank" class="mr-2">
-        <i
-          class={social.icon.class}
-          style={`${social.icon.style} font-size:30px`}
-        />
-        <p style={social.icon.style}>{social.name}</p>
+        <img src={social.img} alt="" width="40px" />
+        <p style={social.style}>{social.name}</p>
       </a>
     {/each}
   </div>
+  <div class="my-gallery">
+    {#each banners as banner}
+      <div style={`background-image: url(${banner});`} />
+    {/each}
+  </div>
 </div>
+
+<style lang="scss">
+  .my-gallery {
+    display: flex;
+    height: 20rem;
+    gap: 1rem;
+    > div {
+      flex: 1;
+      border-radius: 1rem;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      transition: all 0.8s cubic-bezier(0.25, 0.4, 0.45, 1.4);
+      &:hover {
+        flex: 5;
+      }
+    }
+  }
+</style>
