@@ -33,6 +33,7 @@ const UserSchema = new mongoose.Schema(
   }
 ).index({ username: "hashed" }, {});
 export const KeyUserModel = "User";
-export const UserModel =
-  mongoose.models.User ??
-  mongoose.model<UserModelType>(KeyUserModel, UserSchema);
+export const UserModel = mongoose.model<UserModelType>(
+  KeyUserModel,
+  UserSchema
+);
