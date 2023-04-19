@@ -9,7 +9,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         name: "Facebook",
         link: "https://www.facebook.com/huynhnghi2409",
         icon: {
-          class: "fa-brands fa-facebook fa-2xl",
+          class: "fab fa-facebook fa-2xl",
           style: "color: #2977ff;",
         },
       },
@@ -17,7 +17,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         name: "Instagram",
         link: "https://www.instagram.com/im.huangbyi/?fbclid=IwAR10964i4YYx1YGB8gseJQEbu7BNBhYSlxfjlLohi1fR0Td7ULGGBEHJgu4",
         icon: {
-          class: "fa-brands fa-instagram fa-2xl",
+          class: "fab fa-instagram fa-2xl",
           style: "color: #ff0000;",
         },
       },
@@ -37,7 +37,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
   <div class="social flex">
     {#each state.socials as social}
       <a href={social.link} target="_blank" class="mr-2">
-        <i class={social.icon.class} style={social.icon.style} />
+        <i
+          class={social.icon.class}
+          style={`${social.icon.style} font-size:30px`}
+        />
         <p style={social.icon.style}>{social.name}</p>
       </a>
     {/each}
