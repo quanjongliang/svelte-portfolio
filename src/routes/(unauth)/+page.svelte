@@ -1,33 +1,30 @@
 <script lang="ts">
   const state = {
+    active: false,
     img: "https://scontent.fsgn5-5.fna.fbcdn.net/v/t39.30808-6/333711483_3097620170538600_1643101765481105571_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=RsLDzewCPC4AX81U0oT&_nc_ht=scontent.fsgn5-5.fna&oh=00_AfAUdSVSws369Mvl5i5cg3WK6daFHhvki-UKd6gYSA5K2A&oe=6442B8B1",
     job: "UX/UI",
     name: "Huynh Bao Nghi",
     description: `
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
+    Hi there! Im' Huynh Bao Nghi, a graphic designer based in Ho Chi Minh City. Im' ready to graduate and currently working as a freelancer. I consider myself a hard-working person. I'm willing to do my best for the growth of the company with my abilities.`,
     socials: [
       {
         name: "Facebook",
         link: "https://www.facebook.com/huynhnghi2409",
-        style: "color: #2977ff;",
         img: "https://cdn-icons-png.flaticon.com/512/725/725289.png",
       },
       {
         name: "Behance",
         link: "https://www.behance.net/huynhbnghi",
-        style: "color: #2977ff;",
         img: "https://cdn-icons-png.flaticon.com/512/216/216496.png",
       },
       {
         name: "Instagram",
         link: "https://www.instagram.com/im.huangbyi/?fbclid=IwAR10964i4YYx1YGB8gseJQEbu7BNBhYSlxfjlLohi1fR0Td7ULGGBEHJgu4",
-        style: "color: #ff0000;",
         img: "https://cdn-icons-png.flaticon.com/512/725/725278.png",
       },
       {
         name: "Email",
         link: "mailto: huynhbnghi2409@gmail.com",
-        style: "color: #ff0000;",
         img: "https://cdn-icons-png.flaticon.com/512/324/324123.png",
       },
     ],
@@ -64,32 +61,9 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
       link: "https://www.behance.net/gallery/137923385/GIA-LC-Peanut-Candy-Packaging?tracking_source=project_owner_other_projects",
     },
   ];
-
-  const downloadFile = async (
-    url = "public/CVPORTFOLIO-HUYNH-BAO-NGHI.pdf"
-  ) => {
-    console.log("asdasdas");
-
-    // const a = document.createElement("a");
-    // a.href = url;
-    // a.download = url.split("/").pop() as string;
-    // document.body.appendChild(a);
-    // a.click();
-    // document.body.removeChild(a);
-    const data = await fetch(url);
-    console.log("data", await data.body?.getReader().read());
-    const unit8Array = await data.body?.getReader().read();
-    if (unit8Array?.value) {
-      const unit8ArrayLen = unit8Array?.value.length;
-      const buf = new ArrayBuffer(unit8ArrayLen);
-      const strLen = unit8Array.value.length;
-      // for (let i = 0, strLen = unit8ArrayLen; i < strLen; i++) {
-      //   buf[i] = str.charCodeAt(i);
-      // }
-      // const blob = new Blob(unit8Array);
-      // const url = window.URL.createObjectURL(blob);
-    }
-  };
+  setTimeout(() => {
+    state.active = true;
+  }, 1000);
 </script>
 
 <html lang="">
@@ -103,10 +77,9 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     <title>{state.description}</title>
   </head>
   <body>
-    <h1>Welcome</h1>
-    <div class="p-10">
-      <div class="lg:xl:flex flex-row mb-5">
-        <div class="description pr-5">
+    <div class={`p-5`}>
+      <div class="lg:xl:flex flex-row mb-2">
+        <div class="description pr-5 flex flex-col justify-between">
           <div class="w-max">
             <div class="flex justify-between">
               <h1 class="text-4xl font-bold">Hello! I'am</h1>
@@ -115,26 +88,26 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 >{state.job}</span
               >
             </div>
-            <h1 class="text-4xl font-bold">{state.name}</h1>
-          </div>
-          <p class="text-xl mt-10 mb-10">I'm {state.description}</p>
-          <div>
-            <!-- <button on:click={() => downloadFile()}>Download pdf</button> -->
-            <a
-              href="public/CVPORTFOLIO-HUYNH-BAO-NGHI.pdf"
-              download
-              target="_blank">Download Pdf</a
-            >
-          </div>
-          <div class="social">
-            <div>
-              <h1 class="text-3xl font-bold mb-5">Contact</h1>
+            <div class="flex mt-2">
+              <h1 class="text-4xl font-bold mr-5">
+                {state.name}
+              </h1>
+              <a href="/pdf" target="_blank">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/7257/7257803.png"
+                  alt=""
+                  width="40px"
+                /></a
+              >
             </div>
-            <div class="flex mb-5">
+          </div>
+          <p class="text-xl">I'm {state.description}</p>
+          <div class="social">
+            <h1 class="text-3xl font-bold">Contact</h1>
+            <div class="flex mb-5 mt-5">
               {#each state.socials as social}
                 <a href={social.link} target="_blank" class="mr-5">
                   <img src={social.img} alt="" width="40px" />
-                  <!-- <p style={social.style}>{social.name}</p> -->
                 </a>
               {/each}
             </div>
@@ -153,10 +126,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
       <div class="my-gallery">
         {#each products as { img, title, link }}
-          <div style={`background-image: url(${img});`} class="relative">
+          <div style={`background-image: url(${img});`} class="relative flex-1">
             <a href={link} target="_blank">
               <p
-                class="text-lime-600 font-bold text-3xl w-1/3 absolute bottom-5 right-5"
+                class="bg-blue-800 bg-opacity-75 text-blue-100 rounded-3xl p-5 dark:bg-blue-800 dark:text-blue-300 font-bold text-2xl w-1/2 absolute bottom-5 right-5"
               >
                 {title}
               </p>
@@ -165,14 +138,14 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         {/each}
       </div>
     </div>
-    <!-- svelte-ignore a11y-missing-attribute -->
-    <iframe
-      src="https://www.behance.net/gallery/103888679/OFELIA-Modern-Matte-Lipstick?tracking_source=project_owner_other_projects"
-    />
   </body>
 </html>
 
 <style lang="scss">
+  body {
+    background-image: url("https://img.freepik.com/premium-photo/white-watercolor-paper-background-texture-full-frame_136875-2771.jpg?w=2000");
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+  }
   .my-gallery {
     display: flex;
     height: 20rem;
@@ -180,7 +153,6 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     gap: 1rem;
 
     > div {
-      flex: 1;
       border-radius: 1rem;
       background-position: center;
       background-repeat: no-repeat;
@@ -200,11 +172,19 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         -webkit-box-shadow: -2px 2px 25px 4px rgba(0, 0, 0, 0.75);
         -moz-box-shadow: -2px 2px 25px 4px rgba(0, 0, 0, 0.75);
         p {
-          display: block;
-          opacity: 1;
-          transition: all 0.8s linear;
+          opacity: 0.75;
+          transition: all 1s linear;
         }
       }
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
     }
   }
 </style>
