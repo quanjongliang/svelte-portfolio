@@ -65,13 +65,30 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     },
   ];
 
-  const downloadFile = (url = "public/CVPORTFOLIO-HUYNH-BAO-NGHI.pdf") => {
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = url.split("/").pop() as string;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+  const downloadFile = async (
+    url = "public/CVPORTFOLIO-HUYNH-BAO-NGHI.pdf"
+  ) => {
+    console.log("asdasdas");
+
+    // const a = document.createElement("a");
+    // a.href = url;
+    // a.download = url.split("/").pop() as string;
+    // document.body.appendChild(a);
+    // a.click();
+    // document.body.removeChild(a);
+    const data = await fetch(url);
+    console.log("data", await data.body?.getReader().read());
+    const unit8Array = await data.body?.getReader().read();
+    if (unit8Array?.value) {
+      const unit8ArrayLen = unit8Array?.value.length;
+      const buf = new ArrayBuffer(unit8ArrayLen);
+      const strLen = unit8Array.value.length;
+      // for (let i = 0, strLen = unit8ArrayLen; i < strLen; i++) {
+      //   buf[i] = str.charCodeAt(i);
+      // }
+      // const blob = new Blob(unit8Array);
+      // const url = window.URL.createObjectURL(blob);
+    }
   };
 </script>
 
@@ -102,9 +119,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
           </div>
           <p class="text-xl mt-10 mb-10">I'm {state.description}</p>
           <div>
-            <a href="public/CVPORTFOLIO-HUYNH-BAO-NGHI.pdf" target="_blank">
-              <button>Download pdf</button>
-            </a>
+            <!-- <button on:click={() => downloadFile()}>Download pdf</button> -->
+            <a href="public/CVPORTFOLIO-HUYNH-BAO-NGHI.pdf" download
+              >Download Pdf</a
+            >
           </div>
           <div class="social">
             <div>
