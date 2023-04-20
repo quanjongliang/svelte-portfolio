@@ -64,6 +64,15 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
       link: "https://www.behance.net/gallery/137923385/GIA-LC-Peanut-Candy-Packaging?tracking_source=project_owner_other_projects",
     },
   ];
+
+  const downloadFile = (url = "public/CVPORTFOLIO-HUYNH-BAO-NGHI.pdf") => {
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = url.split("/").pop() as string;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
 </script>
 
 <html lang="">
@@ -72,18 +81,13 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     <meta name="description" content="Portfolio" />
     <meta name="keywords" content="UX/UI Designer" />
     <meta name="author" content="Huynh Bao Nghi" />
+    <meta property="og:image" content={state.img} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{state.description}</title>
   </head>
   <body>
     <h1>Welcome</h1>
     <div class="p-10">
-      <!-- <img
-    src="https://instagram.fsgn2-9.fna.fbcdn.net/v/t51.2885-15/81964058_621095181984495_5242187696980269312_n.jpg?stp=dst-jpg_e35&_nc_ht=instagram.fsgn2-9.fna.fbcdn.net&_nc_cat=103&_nc_ohc=1v3XN8s20B8AX99hvzA&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MjIzMjA1NTMzMjQ5NzMzOTQwOA%3D%3D.2-ccb7-5&oh=00_AfAX_R05RXaLv3Z2VLGbV1V_hY4zAE4CXgO1SGE8DRHR1A&oe=6444D3D4&_nc_sid=6136e7"
-    alt=""
-    srcset=""
-    crossorigin="anonymous"
-  /> -->
       <div class="lg:xl:flex flex-row mb-5">
         <div class="description pr-5">
           <div class="w-max">
@@ -97,6 +101,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             <h1 class="text-4xl font-bold">{state.name}</h1>
           </div>
           <p class="text-xl mt-10 mb-10">I'm {state.description}</p>
+          <div>
+            <a href="public/CVPORTFOLIO-HUYNH-BAO-NGHI.pdf" target="_blank">
+              <button>Download pdf</button>
+            </a>
+          </div>
           <div class="social">
             <div>
               <h1 class="text-3xl font-bold mb-5">Contact</h1>
@@ -136,6 +145,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         {/each}
       </div>
     </div>
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <iframe
+      src="https://www.behance.net/gallery/103888679/OFELIA-Modern-Matte-Lipstick?tracking_source=project_owner_other_projects"
+    />
   </body>
 </html>
 
