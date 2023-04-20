@@ -120,8 +120,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
           <p class="text-xl mt-10 mb-10">I'm {state.description}</p>
           <div>
             <!-- <button on:click={() => downloadFile()}>Download pdf</button> -->
-            <a href="public/CVPORTFOLIO-HUYNH-BAO-NGHI.pdf" download
-              >Download Pdf</a
+            <a
+              href="public/CVPORTFOLIO-HUYNH-BAO-NGHI.pdf"
+              download
+              target="_blank">Download Pdf</a
             >
           </div>
           <div class="social">
