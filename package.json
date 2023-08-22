@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "vite dev --port 9999",
+    "dev": "vite dev --port 4444",
     "build": "vite build",
-    "preview": "vite preview --port 9999",
+    "preview": "vite preview --port 4444",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
