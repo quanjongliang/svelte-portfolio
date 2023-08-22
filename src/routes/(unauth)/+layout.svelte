@@ -1,5 +1,4 @@
 <script lang="ts">
-  export const ssr = true;
 </script>
 
 <div class="layout-main">

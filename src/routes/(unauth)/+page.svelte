@@ -1,7 +1,7 @@
 <script lang="ts">
   const state = {
     active: false,
-    img: "https://scontent.fsgn5-5.fna.fbcdn.net/v/t39.30808-6/333711483_3097620170538600_1643101765481105571_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=RsLDzewCPC4AX81U0oT&_nc_ht=scontent.fsgn5-5.fna&oh=00_AfAUdSVSws369Mvl5i5cg3WK6daFHhvki-UKd6gYSA5K2A&oe=6442B8B1",
+    img: "https://phone-hehe.s3.amazonaws.com/333711483_3097620170538600_1643101765481105571_n.jpg",
     job: "UX/UI",
     name: "Huynh Bao Nghi",
     description: `
@@ -113,6 +113,7 @@
             </div>
           </div>
         </div>
+
         <img
           src={state.img}
           alt=""
